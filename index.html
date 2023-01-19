@@ -1,5 +1,156 @@
 <!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    
-</head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css"
+      integrity="sha512-xnP2tOaCJnzp2d2IqKFcxuOiVCbuessxM6wuiolT9eeEJCyy0Vhcwa4zQvdrZNVqlqaxXhHqsSV1Ww7T2jSCUQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      #time,
+      #date {
+        font-family: "Major Mono Display", monospace;
+        font-weight: bold;
+        color: purple;
+      }
+      .dollars::before {
+        content: "$";
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="container">
+      <div class="row">
+        <header class="jumbotron col-9 h-100 bg-warning mb-0">
+          <h1><i class="bi bi-kanban"></i> Project Tracker</h1>
+          <p>
+            Create and track projects and how much money you can make by working
+            on them.
+          </p>
+          <p><span id="date"></span> - <span id="time"></span></p>
+        </header>
+
+        <div class="card col-3" style="width: 18rem">
+          <div class="card-body">
+            <h5 class="card-title">Project Tracker Instructions</h5>
+            <p class="card-text">
+              Fill out the form with the project name, type, rate and due date.
+            </p>
+            <button
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#new-project"
+            >
+              <i class="bi bi-plus-circle"></i> Add Project
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="new-project"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <input
+                  class="form-control"
+                  placeholder="project name"
+                  type="text"
+                  id="project-name"
+                /><br />
+                <select class="form-control" name="" id="project-type">
+                  <option>Front End</option>
+                  <option>Back End</option>
+                  <option>Design</option>
+                  <option>Data</option></select
+                ><br />
+
+                <input class="form-control" type="date" id="due-date" /><br />
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                class="btn btn-primary"
+                id="submit-button"
+                data-dismiss="modal"
+                type="button"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Project Name</th>
+                <th>Type</th>
+                <th>Due Date</th>
+                <th>Days Till Due</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="project-list"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="assets/script.js"></script>
+  </body>
+</html>
